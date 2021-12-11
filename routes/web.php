@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth'])->name('home');
+
+Route::post('/addgame', [GameController::class, 'add'])->middleware(['auth'])->name('post_game');
 
 require __DIR__.'/auth.php';
