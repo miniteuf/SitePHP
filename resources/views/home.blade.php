@@ -19,7 +19,7 @@
                         </div>
                     </div>
                 
-            @endif
+                @endif
                 <form method="POST" action={{route('post_game')}}>
                     <!-- Name input -->
                     {{csrf_field()}}
