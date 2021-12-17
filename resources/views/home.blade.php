@@ -54,6 +54,34 @@
                     <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
                   </form>
             </div>
+            <div class = "col">
+                <h1> Changer son Pseudo </h1>
+                @if($errors->any())
+                
+                    <div class="card bg-danger text-white shadow">
+                        <div class="card-body">
+                            @foreach($errors->all() as $e)
+                            <li>{{$e}}</li>
+                            @endforeach
+                        </div>
+                    </div>
+                
+                @endif
+
+                <form class="mt-5" method="POST" action={{route('edit_name')}}>
+                    <!-- Name input -->
+                    {{csrf_field()}}
+                    <div class="form-outline mb-4">
+
+                        <label class="form-label" for="form4Example1">Name</label>
+                      <input placeholder="{{auth()->user()->name}}" name="name" type="text" id="name" class="form-control" />
+                      
+                    </div>
+                  
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+                  </form>
+            </div>
         </div>
     </div>
 </div>
